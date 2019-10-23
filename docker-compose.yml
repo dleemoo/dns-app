@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  dns-app:
+    image: $DOCKER_IMAGE
+    container_name: dns-app
+    command: bundle exec rails server --binding=0.0.0.0
+    env_file:
+      - .env
+    ports:
+      - $EXTERNAL_PORT:3000
+    volumes:
+      - .:/app
+      - gems_home:/gems
+      - user_home:/home/app
+    tty: true
+    stdin_open: true
+    depends_on:
+      - pg12db
+
+  pg12db:
+    image: postgres:12.0
+    volumes:
+      - pg12db-data:/var/lib/postgresql/data
+
+volumes:
+  gems_home:
+    name: dns-app-gems-home
+  user_home:
+    name: dns-app-user-home
+  pg12db-data:
+    name: dns-app-pg12db
