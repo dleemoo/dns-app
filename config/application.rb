@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -38,7 +38,7 @@ module DnsApp
 
     # config logger
     config.log_formatter = ::Logger::Formatter.new
-    if ENV['DISABLE_STDOUT_LOG'] != 'true' && !Rails.env.test?
+    if ENV["DISABLE_STDOUT_LOG"] != "true" && !Rails.env.test?
       logger = ActiveSupport::Logger.new(STDOUT)
       config.logger = ActiveSupport::TaggedLogging.new(logger)
     end
