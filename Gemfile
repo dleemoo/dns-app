@@ -16,6 +16,10 @@ gem "pg", "1.1.4"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", "1.4.5", require: false
 
+# used to implement railway oriented programming and one standard call
+# interface for classes
+gem "dry-monads", "1.3.1"
+
 group :development, :test do
   gem "pry-byebug", "3.7.0"
   gem "pry-rails", "0.3.9"
