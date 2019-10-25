@@ -5,3 +5,7 @@
 #
 # The data can then be loaded with the rails db:seed command (or created
 # alongside the database with db:setup).
+
+require "seeds/populate"
+
+Seeds::Populate.call
