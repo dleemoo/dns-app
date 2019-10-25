@@ -20,6 +20,9 @@ gem "bootsnap", "1.4.5", require: false
 # interface for classes
 gem "dry-monads", "1.3.1"
 
+# used to create contract validation for operations
+gem "dry-schema", "1.4.1"
+
 group :development, :test do
   gem "pry-byebug", "3.7.0"
   gem "pry-rails", "0.3.9"
