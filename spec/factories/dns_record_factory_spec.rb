@@ -69,7 +69,7 @@ RSpec.describe DnsRecordFactory do
         result = factory.call(ip: "1.1.1.1", hostname_attributes: %w[a.com b.com])
 
         expect(result).to be_failure
-        expect(result.failure).to eq("DnsRecord already present")
+        expect(result.failure.errors.to_h).to eq(ip: ["DnsRecord already present"])
       end
     end
   end

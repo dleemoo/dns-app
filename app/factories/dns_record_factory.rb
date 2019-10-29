@@ -19,7 +19,7 @@ class DnsRecordFactory
       Success(associate(dns_record, hosts))
     end
   rescue ActiveRecord::RecordNotUnique
-    Failure("DnsRecord already present")
+    Failure(OpenStruct.new(errors: { ip: ["DnsRecord already present"] }))
   end
 
   private
